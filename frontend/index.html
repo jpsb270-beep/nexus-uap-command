@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="NEXUS UAP Command — Advanced Aerospace Intelligence Platform" />
   <title>NEXUS UAP COMMAND — Aerospace Intelligence</title>
 
-  <!-- Tipografia técnica / aeroespacial -->
+  <!-- Technical / aerospace typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="estilo.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <!-- ============================================================= -->
-  <!-- BOOT SEQUENCE — tela de inicialização estilo mission control  -->
+  <!-- BOOT SEQUENCE — mission control style startup screen          -->
   <!-- ============================================================= -->
   <div class="boot" id="boot">
     <div class="boot__inner">
@@ -29,7 +29,7 @@
   </div>
 
   <!-- ============================================================= -->
-  <!-- CAMADAS DE FUNDO DINÂMICO                                      -->
+  <!-- DYNAMIC BACKGROUND LAYERS                                      -->
   <!-- ============================================================= -->
   <div class="bg" aria-hidden="true">
     <div class="bg__grid"></div>
@@ -40,14 +40,14 @@
     <div class="bg__noise"></div>
   </div>
 
-  <!-- Cantos de HUD globais -->
+  <!-- Global HUD corners -->
   <div class="hud-corner hud-corner--tl" aria-hidden="true"></div>
   <div class="hud-corner hud-corner--tr" aria-hidden="true"></div>
   <div class="hud-corner hud-corner--bl" aria-hidden="true"></div>
   <div class="hud-corner hud-corner--br" aria-hidden="true"></div>
 
   <!-- ============================================================= -->
-  <!-- BARRA SUPERIOR DE TELEMETRIA                                   -->
+  <!-- TOP TELEMETRY BAR                                             -->
   <!-- ============================================================= -->
   <div class="telemetry">
     <div class="telemetry__item"><span class="dot dot--live"></span> SYS: <b>OPERATIONAL</b></div>
@@ -60,7 +60,7 @@
   </div>
 
   <!-- ============================================================= -->
-  <!-- HEADER / NAVEGAÇÃO                                             -->
+  <!-- HEADER / NAVIGATION                                           -->
   <!-- ============================================================= -->
   <header class="header" id="header">
     <a class="brand" href="#top">
@@ -102,7 +102,7 @@
     <!-- HERO                                                          -->
     <!-- ============================================================= -->
     <section class="hero">
-      <!-- linhas técnicas SVG decorativas -->
+      <!-- decorative technical SVG lines -->
       <svg class="hero__lines" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
         <defs>
           <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="1">
@@ -132,9 +132,9 @@
         <p class="hero__subtitle reveal">Advanced Aerospace Intelligence Platform</p>
 
         <p class="hero__text reveal">
-          Plataforma avançada para monitoramento, classificação e análise de anomalias
-          aeroespaciais em tempo real. Integração de sensores orbitais, malha de radares
-          e inteligência preditiva sob um único centro de comando.
+          Advanced platform for real-time monitoring, classification and analysis
+          of aerospace anomalies. Integrating orbital sensors, a radar mesh and
+          predictive intelligence under a single command center.
         </p>
 
         <div class="hero__cta reveal">
@@ -152,7 +152,7 @@
         </div>
       </div>
 
-      <!-- mini radar flutuante do hero -->
+      <!-- floating mini radar in the hero -->
       <div class="hero__radar reveal" aria-hidden="true">
         <canvas id="heroRadar" width="320" height="320"></canvas>
         <div class="hero__radar-ring"></div>
@@ -161,7 +161,7 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- CARDS DE STATUS                                               -->
+    <!-- STATUS CARDS                                                  -->
     <!-- ============================================================= -->
     <section class="status" id="systems">
       <div class="section-head">
@@ -171,7 +171,7 @@
       </div>
 
       <div class="status__grid">
-        <!-- cada card recebe brackets de HUD via CSS -->
+        <!-- each card gets HUD brackets via CSS -->
         <article class="card" data-status="ok">
           <header class="card__head"><span>RADAR STATUS</span><i class="card__io">I/O</i></header>
           <div class="card__value"><span class="dot dot--live"></span> ONLINE</div>
@@ -211,7 +211,7 @@
     </section>
 
     <!-- ============================================================= -->
-    <!-- DASHBOARD: RADAR + GRÁFICOS + MAPA                            -->
+    <!-- DASHBOARD: RADAR + CHARTS + MAP                               -->
     <!-- ============================================================= -->
     <section class="dash" id="dashboard">
       <div class="section-head">
@@ -221,7 +221,7 @@
       </div>
 
       <div class="dash__grid">
-        <!-- RADAR PRINCIPAL -->
+        <!-- MAIN RADAR -->
         <div class="panel panel--radar" id="radar">
           <div class="panel__head"><span>TACTICAL RADAR</span><span class="txt-cyan">SWEEP // 360°</span></div>
           <div class="radar-wrap">
@@ -232,27 +232,27 @@
           </div>
         </div>
 
-        <!-- GRÁFICO DE LINHA (FAKE) -->
+        <!-- LINE CHART (fake) -->
         <div class="panel panel--chart">
           <div class="panel__head"><span>EM SIGNAL FLUX</span><span class="txt-cyan">REALTIME</span></div>
           <canvas id="lineChart" width="520" height="220"></canvas>
           <div class="panel__foot"><span>SAMPLING 12Hz</span><span id="fluxVal">0.00 µT</span></div>
         </div>
 
-        <!-- GRÁFICO DE BARRAS (FAKE) -->
+        <!-- BAR CHART (fake) -->
         <div class="panel panel--bars">
           <div class="panel__head"><span>SPECTRAL BANDS</span><span class="txt-cyan">Hz</span></div>
           <canvas id="barChart" width="320" height="220"></canvas>
         </div>
 
-        <!-- MAPA HOLOGRÁFICO -->
+        <!-- HOLOGRAPHIC MAP -->
         <div class="panel panel--map" id="intel">
           <div class="panel__head"><span>HOLO-MAP // GLOBAL GRID</span><span class="txt-cyan">3 ANOMALIES</span></div>
           <div class="holomap" id="holomap">
             <svg viewBox="0 0 600 320" class="holomap__svg" preserveAspectRatio="xMidYMid meet">
-              <!-- grade do mapa -->
+              <!-- map grid -->
               <g class="holomap__grid"></g>
-              <!-- pings dinâmicos inseridos via JS -->
+              <!-- dynamic pings injected via JS -->
               <g id="mapPings"></g>
             </svg>
           </div>
@@ -272,13 +272,13 @@
   </footer>
 
   <!-- ============================================================= -->
-  <!-- COMMAND CENTER — view de tela cheia (mission control)         -->
-  <!-- Inicia oculto; aberto pelo botão ENTER COMMAND CENTER         -->
+  <!-- COMMAND CENTER — full screen mission control view             -->
+  <!-- Starts hidden; opened by the ENTER COMMAND CENTER button      -->
   <!-- ============================================================= -->
   <div class="cc" id="commandCenter" aria-hidden="true">
     <div class="cc__scan" aria-hidden="true"></div>
 
-    <!-- BARRA SUPERIOR -->
+    <!-- TOP BAR -->
     <header class="cc__bar">
       <div class="cc__bar-group">
         <span class="brand__mark cc__mark" aria-hidden="true">
@@ -306,14 +306,14 @@
       </div>
     </header>
 
-    <!-- GRID PRINCIPAL DO MISSION CONTROL -->
+    <!-- MISSION CONTROL MAIN GRID -->
     <div class="cc__grid">
 
-      <!-- PAINEL LATERAL TECNOLÓGICO -->
+      <!-- TECH SIDE PANEL -->
       <aside class="cc__side">
         <section class="cc-block">
           <h4>SYSTEM MODULES</h4>
-          <ul class="cc-mods" id="ccMods"><!-- preenchido via JS --></ul>
+          <ul class="cc-mods" id="ccMods"><!-- populated via JS --></ul>
         </section>
 
         <section class="cc-block">
@@ -336,7 +336,7 @@
         </section>
       </aside>
 
-      <!-- ÁREA CENTRAL: RADAR + MAPA + FLUXO -->
+      <!-- CENTER AREA: RADAR + MAP + FLUX -->
       <main class="cc__main">
         <div class="cc-panel cc-panel--radar">
           <div class="panel__head"><span>TACTICAL RADAR</span><span class="txt-cyan">SWEEP 360°</span></div>
@@ -362,10 +362,10 @@
         </div>
       </main>
 
-      <!-- TERMINAL DE EVENTOS EM TEMPO REAL -->
+      <!-- REAL-TIME EVENT TERMINAL -->
       <section class="cc__term">
         <div class="cc__term-head"><span class="dot dot--live"></span> EVENT LOG <span class="txt-cyan">// LIVE STREAM</span></div>
-        <div class="cc__term-body" id="ccTerm"><!-- linhas via JS --></div>
+        <div class="cc__term-body" id="ccTerm"><!-- lines via JS --></div>
         <div class="cc__term-foot">
           <span class="cc__cursor">▌</span> AUTONOMOUS MONITORING ENABLED
         </div>
