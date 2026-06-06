@@ -1,136 +1,41 @@
-# NEXUS UAP Command
+body {
+    background: #0a0f1f;
+    color: #e6f1ff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
 
-NEXUS UAP Command is a futuristic aerospace Mission Control interface for aircraft telemetry, anomaly monitoring, event streams and space weather data.
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #11182b;
+    border-bottom: 1px solid #23314f;
+}
 
-The project is built with pure HTML, CSS and JavaScript, with no backend dependency. It is ready to run locally and deploy on GitHub Pages.
+h1, h2 {
+    color: #7dd3fc;
+}
 
-## Preview
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 15px;
+}
 
-![NEXUS UAP Command dashboard](docs/dashboard-preview.png)
+.metric-card {
+    background: #11182b;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #23314f;
+}
 
-## Live deploy
+a {
+    color: #4cc9f0;
+}
 
-Suggested GitHub Pages URL after publishing:
-
-```text
-https://jpsb270-beep.github.io/nexus-uap-command/
-```
-
-To enable GitHub Pages:
-
-1. Push this project to GitHub.
-2. Open the repository settings.
-3. Go to `Pages`.
-4. Select the `main` branch.
-5. Select `/root` as the publishing folder.
-6. Save and wait for GitHub to generate the public URL.
-
-## Project status
-
-Active prototype. The current version includes an animated dashboard, radar interface, holographic telemetry area, event terminal, public API integrations and local JSON fallbacks.
-
-## Features
-
-- Aerospace Mission Control visual style.
-- Animated boot screen.
-- Animated radar with aircraft blips.
-- Holographic map panel.
-- Live event terminal.
-- Aircraft count and telemetry table.
-- Latitude, longitude, altitude and speed display.
-- Risk classification: low, medium and high.
-- Simple anomaly detection based on speed, altitude and vertical rate.
-- Automatic data refresh.
-- JSON fallback when external APIs fail.
-- Responsive layout.
-- GitHub Pages compatible.
-
-## Technologies
-
-- HTML5
-- CSS3
-- JavaScript
-- OpenSky Network API
-- NOAA Space Weather Prediction Center
-- GitHub Pages
-
-## Public APIs
-
-### OpenSky Network
-
-Endpoint:
-
-```text
-https://opensky-network.org/api/states/all
-```
-
-Used for public aircraft telemetry such as position, altitude, speed, country and identifiers.
-
-### NOAA / SWPC
-
-Endpoints:
-
-```text
-https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json
-https://services.swpc.noaa.gov/json/solar-cycle/observed-solar-cycle-indices.json
-```
-
-Used for space weather data such as Kp index and observed solar flux.
-
-## Project structure
-
-```text
-nexus-uap-command/
-├── index.html
-├── style.css
-├── script.js
-├── README.md
-├── LICENSE
-├── assets/
-├── data/
-│   ├── aircraft-fallback.json
-│   └── space-weather-fallback.json
-└── docs/
-    └── dashboard-preview.png
-```
-
-## Run locally
-
-You can open `index.html` directly in a browser.
-
-For a local server experience, run this command inside the project folder:
-
-```bash
-python -m http.server 8000
-```
-
-Then open:
-
-```text
-http://localhost:8000
-```
-
-## Risk and anomaly logic
-
-The current anomaly rules are experimental:
-
-- Low: telemetry inside expected ranges.
-- Medium: speed above 900 km/h, altitude above 11,000 m or vertical rate above 20 m/s.
-- High: speed above 1,100 km/h, altitude above 14,000 m or vertical rate above 35 m/s.
-
-These values can be adjusted in `script.js`.
-
-## Roadmap
-
-- Add Brazil-only and global monitoring modes.
-- Add regional filters.
-- Add a real map layer.
-- Add altitude and speed charts.
-- Add event history by session.
-- Add weather data integration.
-- Add more screenshots and documentation in `docs/`.
-- Improve anomaly detection with configurable rules.
-
-## License
-
-This project is released under the MIT License. See `LICENSE` for details.
+section {
+    margin-bottom: 25px;
+}
